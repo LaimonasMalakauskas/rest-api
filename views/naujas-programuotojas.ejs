@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+<%- include('partials/nav'); -%>
+
+<h1>Sukurti naują programuotoją</h1>
+<div class="edit">
+  <form action="/api/programuotojai" method="POST">
+
+    <label for="vardas">Vardas:</label>
+    <input type="text" id="vardas" name="vardas" placeholder="Vardas" required>
+  
+    <label for="tech">Technologijos (atskirti kableliais):</label>
+    <input type="text" id="tech" name="tech" placeholder="Pvz.: Java, Python" required>
+  
+    <label for="laisvas">Ar laisvas:</label>
+    <select id="laisvas" name="laisvas">
+      <option value="true">Taip</option>
+      <option value="false">Ne</option>
+    </select>
+
+    <label for="longitude">Ilguma (longitude):</label>
+    <input type="number" id="longitude" name="longitude" step="0.00001" placeholder="Pvz.: 54.63783" required>
+  
+    <label for="latitude">Platuma (latitude):</label>
+    <input type="number" id="latitude" name="latitude" step="0.00001" placeholder="Pvz.: 24.93433" required>
+  
+    <button class="save" type="submit">Išsaugoti</button>
+  </form>
+</div>
+
+
+<%- include('partials/footer'); -%>

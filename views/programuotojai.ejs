@@ -1,0 +1,37 @@
+<%- include('partials/header'); -%>
+<%- include('partials/nav'); -%>
+
+<h1>Programuotojų sąrašas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vardas</th>
+      <th>Technologijos</th>
+      <th>Laisvas</th>
+      <th>Koordinatės</th>
+      <th>Redaguoti</th>
+      <th>Trinti</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% programuotojai.forEach(dev => { %>
+      <tr>
+        <td><%= dev.vardas %></td>
+        <td><%= dev.tech %></td>
+        <td><%= dev.laisvas ? 'Taip' : 'Ne' %></td>
+        <td><%= dev.location.coordinates.join(', ') %></td>
+        <td class="update">
+          <a href="/api/programuotojai/<%= dev._id %>/edit">Redaguoti</a>
+        </td>
+        <td class="delete">
+          <form action="/api/programuotojai/<%= dev._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit" onclick="return confirm('Ar tikrai norite ištrinti?');">Ištrinti</button>
+        </form>        
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('partials/footer'); -%>

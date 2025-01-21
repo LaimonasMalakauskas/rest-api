@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
+body{
+    font-family: Raleway;
+    color: #555;
+    background: #52cbff;
+    margin: 10px 30px;
+}
+#homepage{
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 10px 20px;
+    background: #fdfdfd;
+    border-radius: 4px;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+input[type="number"],
+input[type="text"], 
+select {
+  display: block;
+  width: 300px;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+label{
+    font-weight: bold;
+}
+.title{
+    color: #fff;
+    text-align: center;
+    font-size: 48px;
+}
+#homepage h2{
+    text-align: center;
+}
+form{
+    max-width: 350px;
+    margin: 30px auto;
+}
+input[type="submit"]{
+    background: #555;
+     color: #fff;
+     border: 0;
+     padding: 10px;
+     font-size: 18px;
+     width: 200px;
+     margin: 0 auto;
+     display: block;
+     cursor: pointer;
+     border-radius: 4px;
+ }
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    padding: 15px 0;
+    background: #eee;
+    list-style-type: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+span{
+    display: inline-block;
+    margin: 0 20px;
+}
+span.dist{
+    color: green;
+    float: right;
+}
+span.true{
+    border-radius: 10px;
+    width: 10px;
+    height: 10px;
+    background: green;
+}
+span.false{
+    border-radius: 10px;
+    width: 10px;
+    height: 10px;
+    background: #ff5252;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav li {
+    margin: 5px;
+    padding: 15px;
+}
+
+li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 300;
+    font-weight: bold;
+}
+
+.home svg {
+    color: #555;
+    width: 50px;
+    height: 50px;
+}
+
+.home svg:hover{
+    color: #eee;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  th, td {
+    border: 2px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+
+  .not-found {
+    font-size: 40px;
+    color: #eee;
+    text-align: center;
+    padding: 10% 0;
+}
+
+.update a {
+    display: inline-block; 
+    background-color: orange; 
+    color: white; 
+    text-decoration: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    font-size: 14px; 
+    font-weight: bold; 
+    text-align: center;
+    transition: background-color 0.3s; 
+  }
+  
+  .update a:hover {
+    background-color: darkorange; 
+  }
+
+  .delete button {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .delete button:hover {
+    background-color: darkred;
+  }
+
+  .edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 4px;
+    align-content: center;
+  }
+  
+  .save {
+    display: inline-block;
+    background-color: rgb(59, 194, 59);
+    color: white;
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .save:hover {
+    background-color: darkgreen;
+  }

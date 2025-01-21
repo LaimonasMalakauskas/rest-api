@@ -1,0 +1,75 @@
+<%- include('partials/header'); -%>
+<%- include('partials/nav'); -%>
+
+<h1 class="title">Programuotojai API</h1>
+<div id="homepage">
+    <h2>Surask programuotoją šalia savęs!</h2>
+    <div id="devs"></div>
+</div>
+
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+
+<!-- Create React Component -->
+<script type="text/babel">
+    var Devs = React.createClass({
+        getInitialState: function(){
+            return({
+                devs: []
+            });
+        },
+        render: function() {
+            var devs = this.state.devs;
+            devs = devs.map(function(dev, index) {
+                return (
+                    <li key={index}>
+                        <span className={dev.laisvas ? 'free' : 'busy'}></span>
+                        <span className="name">{dev.vardas}</span>
+                        <span className="rank">{dev.tech.join(', ')}</span>
+                        <span className="dist">{Math.floor(dev.distance / 1000)} km</span>
+                    </li>
+                );
+            });
+
+            return (
+                <div id="dev-container">
+                    <form id="search" onSubmit={this.handleSubmit}>
+                        <label>Ilguma:</label>
+                        <input type="number" ref="lng" placeholder="ilguma" required />
+                        <label>Platuma:</label>
+                        <input type="number" ref="lat" placeholder="platuma" required />
+                        <input type="submit" value="Rasti programuotojus" />
+                    </form>
+                    <ul>{devs}</ul>
+                </div>
+            );
+        },
+
+        handleSubmit: function(e) {
+            e.preventDefault();
+            var lng = this.refs.lng.value;
+            var lat = this.refs.lat.value;
+
+            fetch('/api/programuotojai/?lng=' + lng + '&lat=' + lat)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(json => {
+                    this.setState({
+                        devs: json
+                    });
+                    console.log(json);
+                })
+                .catch(error => {
+                    console.error('Error during fetch:', error);
+                });
+        }
+    });
+    ReactDOM.render(<Devs />, document.getElementById('devs'));
+</script>
+
+<%- include('partials/footer'); -%>
